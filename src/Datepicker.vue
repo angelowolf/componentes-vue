@@ -56,6 +56,11 @@
       interVal (val) {
         this.interVal = val
         this.$emit('input', this.interVal)
+      },
+      options (newOptions) {
+        this.flatPickr.config = Object.assign(this.flatPickr.config, newOptions)
+        this.flatPickr.redraw()
+        this.flatPickr.setDate(this.value, true)
       }
     },
     mounted () {
