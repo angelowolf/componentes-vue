@@ -5,15 +5,11 @@ export default {
   mixins: [BotonBase],
   props: {
     icon: {
-      default: 'save',
+      default: 'plus',
       type: String
     },
     label: {
-      default: 'Guardar',
-      type: String
-    },
-    newLabel: {
-      default: 'Guardando',
+      default: 'Nuevo',
       type: String
     },
     type: {

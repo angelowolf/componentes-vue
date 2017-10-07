@@ -1,3 +1,6 @@
+<template>
+  <button :disabled="haciendo || disabled" @click.prevent="$emit('click')" :class="`btn btn-${type} ${(size && ' btn-'+size)} ${clase}`" type="button"><i :class="[haciendo ? 'fa-circle-o-notch fa fa-spin' : `fa fa-${icon}`]"></i> {{haciendo ? newLabel : label}}</button>
+</template>
 <script>
   export default {
     props: {
@@ -6,15 +9,15 @@
         type: String
       },
       type: {
-        default: 'success',
-        type: String
-      },
-      icon: {
-        default: 'plus',
+        default: 'primary',
         type: String
       },
       size: {
         default: 'sm',
+        type: String
+      },
+      icon: {
+        default: 'plus',
         type: String
       },
       iconSize: {
@@ -25,23 +28,17 @@
         default: '',
         type: String
       },
-      labelCarga: {
+      newLabel: {
         default: '',
         type: String
-      }
-    },
-    data () {
-      return {
-        disabled: false,
-        newIcon: this.icon,
-        newLabel: this.label
-      }
-    },
-    methods: {
-      toggleState () {
-        this.disabled = !this.disabled
-        this.newIcon = this.disabled ? 'circle-o-notch fa-spin' : this.icon
-        this.newLabel = this.disabled && this.labelCarga !== '' ? this.labelCarga : this.label
+      },
+      disabled: {
+        default: false,
+        type: Boolean
+      },
+      haciendo: {
+        default: false,
+        type: Boolean
       }
     }
   }
