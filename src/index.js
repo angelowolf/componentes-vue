@@ -7,6 +7,7 @@ import BotonBuscar from './botones/BotonBuscar'
 import BotonNuevo from './botones/BotonNuevo'
 import BotonColapsable from './botones/BotonColapsable'
 import SelectUbicacion from './select/SelectUbicacion'
+import SelectUbicacionMapa from './select/SelectUbicacionMapa'
 import Tabla from './tablas/Tabla'
 import FormHelp from './FormHelp'
 
@@ -61,6 +62,7 @@ function plugin (Vue, rutas, store) {
   Vue.component('btn-cp', BotonColapsable)
 
   Vue.component('selectUbicacion', SelectUbicacion)
+  Vue.component('select-ubicacion-mapa', SelectUbicacionMapa)
   Vue.component('tabla', Tabla)
   Vue.component('fecha', Datepicker)
   Vue.component('form-help', FormHelp)
@@ -83,6 +85,7 @@ export {
   BotonNuevo,
   BotonColapsable,
   SelectUbicacion,
+  SelectUbicacionMapa,
   Tabla,
   Datepicker,
   FormHelp,

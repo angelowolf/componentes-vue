@@ -92,22 +92,6 @@
         type: Boolean,
         required: false,
         default: false
-      },
-      disabledPais: {
-        type: Boolean,
-        default: false
-      },
-      disabledProvincia: {
-        type: Boolean,
-        default: false
-      },
-      disabledDepartamento: {
-        type: Boolean,
-        default: false
-      },
-      disabledLocalidad: {
-        type: Boolean,
-        default: false
       }
     },
     data () {
@@ -118,7 +102,11 @@
         localidadSelect: null,
         provincias: [],
         departamentos: [],
-        localidades: []
+        localidades: [],
+        disabledPais: false,
+        disabledProvincia: false,
+        disabledDepartamento: false,
+        disabledLocalidad: false
       }
     },
     methods: {
@@ -184,7 +172,9 @@
     },
     watch: {
       idLocalidad () {
-        this.cargarCombos()
+        if (this.idLocalidad !== null) {
+          this.cargarCombos()
+        }
       },
       getPaisesTodos () {
         if (this.idLocalidad !== null) {
