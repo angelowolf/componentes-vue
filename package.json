@@ -1,6 +1,6 @@
 {
   "name": "componentes-vue",
-  "version": "2.2.2",
+  "version": "3.0.2",
   "description": "Plugin js con varios componentes",
   "author": "angelo wolf <angelowolf21@gmail.com>",
   "main": "dist/componentes-vue.common.js",

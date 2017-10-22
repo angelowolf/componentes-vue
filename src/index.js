@@ -8,15 +8,36 @@ import BotonNuevo from './botones/BotonNuevo'
 import BotonColapsable from './botones/BotonColapsable'
 import SelectUbicacion from './select/SelectUbicacion'
 import SelectUbicacionMapa from './select/SelectUbicacionMapa'
+import InputSitio from './input/InputSitio'
+import MapaUbicacion from './mapa/MapaUbicacion'
 import Tabla from './tablas/Tabla'
 import FormHelp from './FormHelp'
 
 function plugin (Vue, rutas, store) {
   if (!rutas) {
-    throw new Error('Ingrese la ruta del endpoint paises')
+    throw new Error('Ingrese el objeto con las rutas necesarias...')
+  } else {
+    if (!rutas.geocode) {
+      throw new Error('Ingrese la Ruta geocode...')
+    }
+    if (!rutas.sitio) {
+      throw new Error('Ingrese la Ruta sitio...')
+    }
+    if (!rutas.pais) {
+      throw new Error('Ingrese la Ruta pais...')
+    }
+    if (!rutas.provincia) {
+      throw new Error('Ingrese la Ruta provincia...')
+    }
+    if (!rutas.departamento) {
+      throw new Error('Ingrese la Ruta departamento...')
+    }
+    if (!rutas.localidad) {
+      throw new Error('Ingrese la Ruta localidad...')
+    }
   }
   if (!store) {
-    throw new Error('Ingrese el store')
+    throw new Error('Ingrese el store...')
   }
 
   const moduleUbicaciones = {
@@ -66,6 +87,9 @@ function plugin (Vue, rutas, store) {
   Vue.component('tabla', Tabla)
   Vue.component('fecha', Datepicker)
   Vue.component('form-help', FormHelp)
+
+  Vue.component('input-sitio', InputSitio)
+  Vue.component('mapa-ubicacion', MapaUbicacion)
 }
 
 // Install by default if using the script tag
@@ -88,6 +112,8 @@ export {
   SelectUbicacionMapa,
   Tabla,
   Datepicker,
+  InputSitio,
+  MapaUbicacion,
   FormHelp,
   version
 }
